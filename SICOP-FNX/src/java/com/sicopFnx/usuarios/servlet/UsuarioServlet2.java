@@ -21,9 +21,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Enrique
  */
-public class UsuarioServlet extends HttpServlet {
-    
- protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+public class UsuarioServlet2 extends HttpServlet {
+protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
@@ -56,7 +55,7 @@ public class UsuarioServlet extends HttpServlet {
                 List listaDeUsuarios = dos.consultaUsuario();
                 request.setAttribute("usuariosLista", listaDeUsuarios);
 
-                RequestDispatcher rd = getServletContext().getRequestDispatcher("/jsp/UsuarioConsultar.jsp");
+                RequestDispatcher rd = getServletContext().getRequestDispatcher("/JSP/Usuario/UsuarioConsultar.jsp");
                 rd.forward(request, response);
 
             } //eliminar
@@ -72,7 +71,7 @@ public class UsuarioServlet extends HttpServlet {
                 List listaDeUsuarios = dos.consultaUsuario();
                 request.setAttribute("usuariosLista", listaDeUsuarios);
 
-                RequestDispatcher rd = getServletContext().getRequestDispatcher("/jsp/UsuarioConsultar.jsp");
+                RequestDispatcher rd = getServletContext().getRequestDispatcher("/JSP/Usuario/UsuarioConsultar.jsp");
                 rd.forward(request, response);
 
             } else if (operacion.equals("modificarUsuario")) {
@@ -82,7 +81,7 @@ public class UsuarioServlet extends HttpServlet {
                 bean = dos.ConsultaUsuarioIndividual(id);
                 request.setAttribute("UsuarioBean", bean);
 
-                RequestDispatcher rd = getServletContext().getRequestDispatcher("/jsp/UsuarioModificar.jsp");
+                RequestDispatcher rd = getServletContext().getRequestDispatcher("/JSP/Usuario/UsuarioConsultar.jsp");
                 rd.forward(request, response);
 
             }
@@ -111,7 +110,7 @@ public class UsuarioServlet extends HttpServlet {
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -151,4 +150,3 @@ public class UsuarioServlet extends HttpServlet {
     }// </editor-fold>
 
 }
-

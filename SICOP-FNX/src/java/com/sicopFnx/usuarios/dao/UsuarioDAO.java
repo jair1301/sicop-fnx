@@ -25,9 +25,9 @@ import java.util.logging.Logger;
  */
 public class UsuarioDAO {
     
-public static String SqlAltaUsuario = "INSERT INTO usuario VALUES (null, ?, ?, ?, ?, ?);";
+public static String SqlAltaUsuario = "INSERT INTO usuario VALUES ( null, ?, ?, ?, ?);";
     public static String SqlBajaUsuario = "DELETE FROM usuario WHERE idusuario=?;";
-    public static String SqlModificarUsuario = "UPDATE usuario SET nombre=?, apellido=?, sexo=?, password=?, login=? WHERE idusuario=?;";
+    public static String SqlModificarUsuario = "UPDATE usuario SET nombre=?, apellido=?, sexo=?, password=?, usuario=? WHERE idusuario=?;";
     public static String SqlSelectTodosUsuario = "SELECT * FROM usuario";
 
     Connection con;
@@ -77,8 +77,8 @@ public static String SqlAltaUsuario = "INSERT INTO usuario VALUES (null, ?, ?, ?
             pstm = con.prepareStatement(SqlAltaUsuario);
             pstm.setString(1, BeanUsuario.getNombre());
             pstm.setString(2, BeanUsuario.getApellido());
+            pstm.setString(3, BeanUsuario.getLogin());
             pstm.setString(4, BeanUsuario.getPassword());
-            pstm.setString(5, BeanUsuario.getLogin());
             
             respuesta=pstm.execute();
             
@@ -135,7 +135,7 @@ public static String SqlAltaUsuario = "INSERT INTO usuario VALUES (null, ?, ?, ?
             uno.setNombre(rs.getString("nombre"));
             uno.setApellido(rs.getString("apellido"));
              uno.setPassword(rs.getString("password"));
-            uno.setLogin(rs.getString("login"));
+            uno.setLogin(rs.getString("usuario"));
             
             respuesta.add(uno);
             }

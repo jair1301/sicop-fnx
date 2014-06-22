@@ -15,10 +15,7 @@
         <title>JSP Page</title>
     </head>
    
-    <script >
-           alert("holamundo");
-       </script>
-
+ 
       <%
        String msj= (String)request.getAttribute("msj2");
       
@@ -32,7 +29,7 @@
         %>
         
     <body>
-        <h1>Hello World!</h1>
+        <h1>Usuarios</h1>
         <% String context= request.getContextPath();
         List<UsuarioBean> usuariosLista=( List)request.getAttribute("usuariosLista");
         if(usuariosLista == null){
@@ -42,7 +39,7 @@
         }else {
         %>
         si existen usuarios
-        <a href="<%=context %>JSP/Usuario/UsuarioAlta.jsp">dar De alta un usuario</a>
+        <a href="<%=context %>/JSP/Usuario/UsuarioAlta.jsp">dar De alta un usuario</a>
         
         
         <table><tr>
@@ -63,8 +60,8 @@
                 <td><%=bean.getApellido() %></td>
                 <td><%=bean.getPassword() %></td>
                 <td><%=bean.getLogin() %></td>
-                <td><a href = "<%=context%>/UsuarioServlet?operacion=EliminarUsuario&UsuarioId=<%=bean.getIdUsuario() %>">ELIMINAR</a></td>
-                <td><a href = "<%=context%>/UsuarioServlet?operacion=modificarUsuario&UsuarioId=<%=bean.getIdUsuario() %>">MODIFICAR</a></td>
+                <td><a href = "<%=context%>/UsuarioServlet2?operacion=EliminarUsuario&UsuarioId=<%=bean.getIdUsuario() %>">ELIMINAR</a></td>
+                <td><a href = "<%=context%>/UsuarioServlet2?operacion=modificarUsuario&UsuarioId=<%=bean.getIdUsuario() %>">MODIFICAR</a></td>
                 
                 
             </tr>

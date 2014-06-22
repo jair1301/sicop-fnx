@@ -16,7 +16,7 @@
     <body>
         <h1>alta!</h1>
         
-        <form action="<%=request.getContextPath()%>/UsuarioServlet?operacion=altaUsuario" method="POST">
+        <form action="<%=request.getContextPath()%>/UsuarioServlet2?operacion=altaUsuario" method="POST">
             nombre: <input type="text" name="nombreUsuario">
             apellido: <input type="text" name="apellidoUsuario">
             login:<input type="text" name="loginUsuario">
